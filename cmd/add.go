@@ -10,10 +10,10 @@ var addCmd = &cobra.Command{
 	Use:   "add",
 	Short: "Adds a task to your task list.",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("add called")
+		fmt.Println(args)
 	},
 }
 
 func init() {
-	RootCmd.AddCommand(addCmd)
+	rootCmd.AddCommand(addCmd)
 }
