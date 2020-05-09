@@ -29,6 +29,11 @@ func Init(dbPath string) error {
 	})
 }
 
+// Close closes the database connection.
+func Close() {
+	db.Close()
+}
+
 // CreateTask Puts a new entry in the bucket. 
 // For autoincrement we use the Bucket.NextSequence API.
 // https://pkg.go.dev/github.com/boltdb/bolt?tab=doc#Bucket.NextSequence
@@ -72,6 +77,16 @@ func AllTasks() ([]Task, error) {
 	}
 
 	return tasks, nil
+}
+
+// DeleteTask looks for entry by 'key' and deletes it.
+// If the key does not exist then nothing is done and a nil error is returned.
+// Returns an error if the bucket was created from a read-only transaction.
+func DeleteTask(key int) error {
+	return db.Update(func(tx *bolt.Tx) error {
+		b := tx.Bucket(taskBucket)
+		return b.Delete(itob(key))
+	})
 }
 
 func itob(v int) []byte {
