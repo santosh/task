@@ -1,4 +1,4 @@
-module github.com/santosh/taskmanager
+module github.com/santosh/task
 
 go 1.14
 
