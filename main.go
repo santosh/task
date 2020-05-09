@@ -1,7 +1,19 @@
 package main
 
-import "github.com/santosh/taskmanager/cmd"
+import (
+	"fmt"
+	"os"
+
+	"github.com/santosh/taskmanager/cmd"
+)
 
 func main() {
-	cmd.Execute()
+	doOrQuit(cmd.RootCmd.Execute())
+}
+
+func doOrQuit(err error) {
+	if err != nil {
+		fmt.Println(err.Error())
+		os.Exit(1)
+	}
 }
