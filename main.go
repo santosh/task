@@ -14,7 +14,6 @@ func main() {
 	home, _ := homedir.Dir()
 	dbPath := filepath.Join(home, "tasks.db")
 	doOrQuit(db.Init(dbPath))
-	defer db.Close()
 	doOrQuit(cmd.RootCmd.Execute())
 }
 

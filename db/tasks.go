@@ -29,11 +29,6 @@ func Init(dbPath string) error {
 	})
 }
 
-// Close closes the database connection.
-func Close() {
-	db.Close()
-}
-
 // CreateTask Puts a new entry in the bucket. 
 // For autoincrement we use the Bucket.NextSequence API.
 // https://pkg.go.dev/github.com/boltdb/bolt?tab=doc#Bucket.NextSequence
@@ -89,12 +84,14 @@ func DeleteTask(key int) error {
 	})
 }
 
+// itob converts from int to Bolt friendly binary
 func itob(v int) []byte {
 	b := make([]byte, 8)
 	binary.BigEndian.PutUint64(b, uint64(v))
 	return b
 }
 
+// btoi converts from byte to int
 func btoi(b []byte) int {
     return int(binary.BigEndian.Uint64(b))
 }
