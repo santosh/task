@@ -19,7 +19,7 @@ type Task struct {
 // not already exists. This is required for inserts later on.
 func Init(dbPath string) error {
 	var err error
-	db, err := bolt.Open(dbPath, 0600, nil)
+	db, err = bolt.Open(dbPath, 0600, nil)
 	if err != nil {
 		return err
 	}
@@ -29,7 +29,7 @@ func Init(dbPath string) error {
 	})
 }
 
-// CreateTask Puts a new entry in the bucket. 
+// CreateTask Puts a new entry in the bucket.
 // For autoincrement we use the Bucket.NextSequence API.
 // https://pkg.go.dev/github.com/boltdb/bolt?tab=doc#Bucket.NextSequence
 func CreateTask(task string) (int, error) {
@@ -59,7 +59,7 @@ func AllTasks() ([]Task, error) {
 		c := b.Cursor()
 		for k, v := c.First(); k != nil; k, v = c.Next() {
 			tasks = append(tasks, Task{
-				Key: btoi(k),
+				Key:   btoi(k),
 				Value: string(v),
 			})
 		}
@@ -93,5 +93,5 @@ func itob(v int) []byte {
 
 // btoi converts from byte to int
 func btoi(b []byte) int {
-    return int(binary.BigEndian.Uint64(b))
+	return int(binary.BigEndian.Uint64(b))
 }
