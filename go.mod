@@ -1,4 +1,4 @@
-module github.com/santosh/task
+module gitlab.com/sntshk/task
 
 go 1.14
 

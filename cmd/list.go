@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/santosh/task/db"
 	"github.com/spf13/cobra"
+	"gitlab.com/sntshk/task/db"
 )
 
 // listCmd represents the list command

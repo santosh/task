@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/santosh/task/db"
 	"github.com/spf13/cobra"
+	"gitlab.com/sntshk/task/db"
 )
 
 var addCmd = &cobra.Command{

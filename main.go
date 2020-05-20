@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 
 	"github.com/mitchellh/go-homedir"
-	"github.com/santosh/task/cmd"
-	"github.com/santosh/task/db"
+	"gitlab.com/sntshk/task/cmd"
+	"gitlab.com/sntshk/task/db"
 )
 
 func main() {
