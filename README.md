@@ -24,3 +24,21 @@ Flags:
 Use "task [command] --help" for more information about a command.
 ```
 
+## Development
+
+As I am a regular user of these services, I will be implementing these third-party services in this CLI tool.
+
+- Twitter
+- Reddit
+- Github
+- Slack
+- Gmail?
+- Google Calendar?
+- LinkedIn
+
+`task` will become a sub-command to a broader app called `myhub`.
+
+### Design Goals
+
+- For every subcommand, there will be an `auth` subcommand.
+- All other subcommands for that subcommand will depend on auth middleware.
