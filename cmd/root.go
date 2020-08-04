@@ -29,8 +29,11 @@ var cfgFile string
 
 // RootCmd represents the base command when called without any subcommands
 var RootCmd = &cobra.Command{
-	Use:   "task",
-	Short: "Task is a CLI task manager",
+	Use:   "cotu",
+	Short: "Center of the Universe.",
+	Long: `Center of the Universe.
+
+A command line tool to manage your daily task.`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -49,11 +52,11 @@ func init() {
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
-	RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.task.yaml)")
+	// RootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.cotu.yaml)")
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
-	RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// RootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
 // initConfig reads in config file and ENV variables if set.
@@ -69,9 +72,9 @@ func initConfig() {
 			os.Exit(1)
 		}
 
-		// Search config in home directory with name ".taskmanager" (without extension).
+		// Search config in home directory with name ".cotu" (without extension).
 		viper.AddConfigPath(home)
-		viper.SetConfigName(".task")
+		viper.SetConfigName(".cotu")
 	}
 
 	viper.AutomaticEnv() // read in environment variables that match

@@ -1,27 +1,35 @@
-# taskmanager
+# cotu
 
-Task Manager is an experimental CLI task management app written in Golang and BoltDB. Task Manager is not to be confused with the system resource manager.
+`cotu`, an abbreviation for *Center of the Universe* is an experimental CLI tool to connect all the services a person can use daily.
+
+## Features
+
+- Connects to different kinds of API backends, including
+  - REST
+  - GraphQL
 
 ## Usage
 
 ```text
-Task is a CLI task manager
+$ cotu
+Center of the Universe.
+
+A command line tool to manage your daily task.
 
 Usage:
-  task [command]
+  cotu [command]
 
 Available Commands:
-  add         Adds a task to your task list.
-  do          Marks a task as complete.
   help        Help about any command
-  list        Lists all of your tasks.
+  task        A local db based task manager
+  version     Prints the version number of cotu
 
 Flags:
       --config string   config file (default is $HOME/.task.yaml)
-  -h, --help            help for task
+  -h, --help            help for cotu
   -t, --toggle          Help message for toggle
 
-Use "task [command] --help" for more information about a command.
+Use "cotu [command] --help" for more information about a command.
 ```
 
 ## Development
@@ -35,8 +43,6 @@ As I am a regular user of these services, I will be implementing these third-par
 - Gmail?
 - Google Calendar?
 - LinkedIn
-
-`task` will become a sub-command to a broader app called `myhub`.
 
 ### Design Goals
 

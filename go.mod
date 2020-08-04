@@ -1,4 +1,4 @@
-module gitlab.com/sntshk/task
+module github.com/santosh/cotu
 
 go 1.14
 
