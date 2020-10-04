@@ -1,4 +1,5 @@
-package db
+// Package db holds functions related to database abstraction.
+package integration
 
 import (
 	"encoding/binary"
@@ -10,6 +11,7 @@ var taskBucket = []byte("tasks")
 
 var db *bolt.DB
 
+// Task has a numerical ID called 'Key' and Value which comprises text.
 type Task struct {
 	Key   int
 	Value string

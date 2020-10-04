@@ -24,7 +24,7 @@ import (
 	"strings"
 
 	homedir "github.com/mitchellh/go-homedir"
-	"github.com/santosh/cotu/db"
+	db "github.com/santosh/cotu/integration"
 	"github.com/spf13/cobra"
 )
 

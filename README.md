@@ -2,11 +2,30 @@
 
 `cotu`, an abbreviation for *Center of the Universe* is an experimental CLI tool to connect all the services a person can use daily.
 
-## Features
+## Installation
 
-- Connects to different kinds of API backends, including
+    go get -u github.com/santosh/cotu
+
+## Highlights
+
+<!-- This section only lists non-technical writeup -->
+
+- Connects to different ever changing genres of backend API, including
   - REST
   - GraphQL
+  - Twitter's **Streaming API**
+- System is extensible to
+
+<!-- More technical writeup to be written on the blog
+
+Is object-oriented.
+Follows twelve-factor methodology (don't wait until all are achieved)
+Follows different authentication mechanism, OAuth, JWT
+Follows different API mechanism
+
+-->
+
+<!-- Post to HackeNews, r/Golang -->
 
 ## Usage
 
