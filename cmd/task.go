@@ -38,7 +38,7 @@ func init() {
 // taskCmd represents the task command
 var taskCmd = &cobra.Command{
 	Use:   "task",
-	Short: "A local db based task manager",
+	Short: "a local db based task manager",
 	Long: `A local db based task manager.
 Here for historical purposes.`,
 }

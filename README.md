@@ -39,29 +39,32 @@ Usage:
   cotu [command]
 
 Available Commands:
+  github      interface with github
   help        Help about any command
-  task        A local db based task manager
-  version     Prints the version number of cotu
+  reddit      interface with reddit
+  s3          interface with cotu s3 bucket
+  task        a local db based task manager
+  twitter     interface with twitter
+  version     prints the version number of cotu
 
 Flags:
-      --config string   config file (default is $HOME/.task.yaml)
-  -h, --help            help for cotu
-  -t, --toggle          Help message for toggle
-
-Use "cotu [command] --help" for more information about a command.
+  -h, --help   help for cotu
 ```
 
 ## Development
 
-As I am a regular user of these services, I will be implementing these third-party services in this CLI tool.
+Dummy commands have been added for:
 
-- Twitter
-- Reddit
-- Github
-- Slack
-- Gmail?
-- Google Calendar?
-- LinkedIn
+- **task** - a BoltDB based task manager
+    - *add*: add new task
+    - *do*: mark task as done
+    - *list*: list all pending task
+- **s3** - an interface to cotu s3 bucket
+- **twitter** - commands for twitter
+- **reddit** - commands for reddit
+- **github** - commands for github
+- **slack** - commands for slack
+- **calendar** - commands for google calendar
 
 ### Design Goals
 
