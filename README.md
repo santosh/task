@@ -60,6 +60,8 @@ Dummy commands have been added for:
     - *do*: mark task as done
     - *list*: list all pending task
 - **s3** - an interface to cotu s3 bucket
+    - *upload*: upload file to cotu bucket
+    - *list*: list files from cotu bucket
 - **twitter** - commands for twitter
 - **reddit** - commands for reddit
 - **github** - commands for github

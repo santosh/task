@@ -1,36 +1,52 @@
-/*
-Copyright © 2020 Santosh Kumar <sntshkmr60@gmail.com>
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package cmd
 
 import (
-	"fmt"
+	"log"
+	"os"
 
+	"github.com/joho/godotenv"
+	"github.com/santosh/cotu/integration"
 	"github.com/spf13/cobra"
 )
+
+func init() {
+	err := godotenv.Load(".env")
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+		os.Exit(1)
+	}
+}
 
 // s3Cmd represents the s3 command
 var s3Cmd = &cobra.Command{
 	Use:   "s3",
 	Short: "interface with cotu s3 bucket",
+}
+
+var uploadS3Cmd = &cobra.Command{
+	Use:   "upload",
+	Short: "uploads a file to cotu bucket",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("s3 called")
+		err := integration.UploadFile(args[0])
+		if err != nil {
+			panic(err)
+		}
+	},
+}
+
+var listS3Cmd = &cobra.Command{
+	Use:   "list",
+	Short: "list items from cotu bucket",
+	Run: func(cmd *cobra.Command, args []string) {
+		err := integration.ListFiles()
+		if err != nil {
+			panic(err)
+		}
 	},
 }
 
 func init() {
+	s3Cmd.AddCommand(uploadS3Cmd, listS3Cmd)
 	RootCmd.AddCommand(s3Cmd)
 
 	// Here you will define your flags and configuration settings.
